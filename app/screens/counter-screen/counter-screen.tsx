@@ -2,7 +2,12 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {Button} from '../../components/button/button';
 import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {COUNTER_MAX_VALUE, increment} from '../../store/slices/counter';
+import {
+  COUNTER_MAX_VALUE,
+  increment,
+  decrement,
+  COUNTER_MIN_VALUE,
+} from '../../store/slices/counter';
 import {counterScreenStyles} from './counter-screen.styles';
 
 interface MainScreenProps {}
@@ -13,6 +18,10 @@ export const CounterScreen = ({}: MainScreenProps) => {
 
   const increaseHandler = () => {
     dispatch(increment());
+  };
+
+  const decreaseHandler = () => {
+    dispatch(decrement());
   };
 
   return (
@@ -33,7 +42,11 @@ export const CounterScreen = ({}: MainScreenProps) => {
           />
         </View>
         <View style={counterScreenStyles.buttonContainer}>
-          <Button onPress={() => {}} title="decrease" />
+          <Button
+            onPress={decreaseHandler}
+            title="decrease"
+            disabled={counterState <= COUNTER_MIN_VALUE}
+          />
         </View>
       </View>
     </View>
