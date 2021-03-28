@@ -25,4 +25,7 @@ export const buttonStyles = StyleSheet.create({
     color: '#FFF',
     fontSize: 20,
   },
+  disabled: {
+    opacity: 0.6,
+  },
 });
