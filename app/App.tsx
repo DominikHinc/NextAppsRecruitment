@@ -1,6 +1,6 @@
 import React from 'react';
-import {View} from 'react-native';
+import {CounterScreen} from './screens/counter-screen/counter-screen';
 
 export const App = () => {
-  return <View />;
+  return <CounterScreen />;
 };
